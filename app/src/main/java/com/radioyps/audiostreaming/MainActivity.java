@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     AudioRecord recorder;
 
-    private int sampleRate = 16000 ; // 44100 for music
+//    private int sampleRate = 16000 ; // 44100 for music
+private int sampleRate = 8000 ; // 44100 for music
     private int channelConfig = AudioFormat.CHANNEL_CONFIGURATION_MONO;
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
     int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("VS","Buffer created of size " + minBufSize);
                     DatagramPacket packet;
 
-                    final InetAddress destination = InetAddress.getByName("192.168.1.5");
+                    final InetAddress destination = InetAddress.getByName("192.168.12.108");
                     Log.d("VS", "Address retrieved");
 
 
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         packet = new DatagramPacket (buffer,buffer.length,destination,port);
 
                         socket.send(packet);
-                        System.out.println("MinBufferSize: " +minBufSize);
+//                        System.out.println("MinBufferSize: " +minBufSize);
 
 
                     }
